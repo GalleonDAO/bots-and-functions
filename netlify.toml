@@ -5,7 +5,6 @@
 
 [build]
   publish = "dist"
-  command = "npm run build"
   functionsSource = "netlify/functions"
   functions = "dist/functions"
   
