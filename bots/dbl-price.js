@@ -30,10 +30,6 @@ const task = async () => {
       { type: 'WATCHING' },
     )
   }
-
-  return {
-    statusCode: 200,
-  }
 }
 
 setInterval(async () => {
