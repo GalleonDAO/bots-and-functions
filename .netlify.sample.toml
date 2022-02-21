@@ -1,5 +1,5 @@
 [build]
-functions = "doubloon-bot"
+functions = "netlify/functions"
 command = "netlify-lambda install && mkdir ./public"
 [template.environment]
 DISCORD_API_TOKEN = ""
