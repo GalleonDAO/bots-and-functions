@@ -4,8 +4,8 @@
   "description": "A Galleon Discord bot to show token prices.",
   "main": "src/netlify/functions/doubloon-bot.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start:dbl": "node ./netlify/functions/doubloon-bot/doubloon-bot.js",
+    "dev:dbl": "nodemon ./netlify/functions/doubloon-bot/doubloon-bot.js"
   },
   "keywords": [
     "discord",
@@ -16,6 +16,7 @@
   "author": "Galleon DAO",
   "license": "MIT",
   "dependencies": {
+    "netlify-lambda": "^2.0.1",
     "@netlify/functions": "^1.0.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
