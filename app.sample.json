@@ -1,0 +1,11 @@
+{
+  "name": "discord-bot",
+  "description": "A Discord bot that fetches and shows token data from Coingecko.",
+  "repository": "https://github.com/GalleonDAO/discord-bot",
+  "logo": "",
+  "keywords": ["node", "discord", "coingecko", "token"],
+  "env": {
+    "DISCORD_API_TOKEN": "",
+    "TOKEN_ID": "doubloon"
+  }
+}
