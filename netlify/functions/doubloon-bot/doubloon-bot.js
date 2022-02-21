@@ -1,35 +1,23 @@
-const express = require('express')
-const app = express()
-const port = 3000
-
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.listen(port, () =>
-  console.log(`Galleon app listening at http://localhost:${port}`),
-)
-
 const { Client } = require('discord.js')
 const dotenv = require('dotenv')
-
 const { fetchData } = require('./fetchData')
 const { numberWithCommas } = require('./utils')
+const { schedule } = require('@netlify/functions')
 
 dotenv.config()
 
 const client = new Client()
-
-// eslint-disable-next-line
+client.login(process.env.DISCORD_API_TOKEN)
 client.on('ready', () =>
   console.log(`Bot successfully started as ${client.user.tag} 🤖`),
 )
 
-// Updates token price on bot's nickname every X amount of time
-client.setInterval(async () => {
+module.exports.handler = schedule('* * * * *', async (_) => {
   const data = await fetchData()
 
   if (!data) return
 
-  const { price, symbol, circSupply } = data
+  const { price, _, circSupply } = data
 
   client.guilds.cache.forEach(async (guild) => {
     const botMember = guild.me
@@ -46,6 +34,8 @@ client.setInterval(async () => {
     }`,
     { type: 'WATCHING' },
   )
-}, 1 * 60 * 1000)
 
-client.login(process.env.DISCORD_API_TOKEN)
+  return {
+    statusCode: 200,
+  }
+})

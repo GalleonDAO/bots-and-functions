@@ -4,3 +4,4 @@ node_modules/
 app.json
 .netlify.toml
 .idea/
+.DS_Store
