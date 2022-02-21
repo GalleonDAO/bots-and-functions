@@ -1,7 +1,7 @@
 {
   "name": "galleon-discord-bots",
   "version": "1.0.0",
-  "description": "Galleon Discord bots",
+  "description": "Galleon Discord Bots",
   "main": "bots/dbl-price.js",
   "scripts": {
     "start:dbl": "node bots/dbl-price.js",
