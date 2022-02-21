@@ -13,6 +13,9 @@ client.on('ready', () =>
 )
 
 module.exports.handler = schedule('* * * * *', async (_) => {
+  const eventBody = JSON.parse(event.body)
+  console.log(`Next function run at ${eventBody.next_run}.`)
+
   const data = await fetchData()
 
   if (!data) return
