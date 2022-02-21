@@ -17,7 +17,9 @@ module.exports.handler = schedule('* * * * *', async (_) => {
 
   if (!data) return
 
-  const { price, _, circSupply } = data
+  const { price, symbol, circSupply } = data
+
+  console.log.log('Fetched for: ' + symbol)
 
   client.guilds.cache.forEach(async (guild) => {
     const botMember = guild.me
