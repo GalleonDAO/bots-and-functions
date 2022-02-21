@@ -32,7 +32,7 @@ module.exports.handler = schedule('* * * * *', async (event) => {
 
   client.guilds.cache.forEach(async (guild) => {
     const botMember = guild.me
-    await botMember.setNickname(`${price ? numberWithCommas(price) : ''}`)
+    await botMember.setNickname(`${price ? '$' + numberWithCommas(price) : ''}`)
   })
 
   if (client.user) {

@@ -2,7 +2,12 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "A Galleon Discord bot to show token prices.",
-  "scripts": {},
+  "scripts": {
+    "build": "netlify functions:build",
+    "deploy:unbundled": "netlify deploy --functions=netlify/functions",
+    "deploy:bundled": "netlify deploy --functions=dist/functions",
+    "deploy:prod": "netlify deploy --prod"
+  },
   "keywords": [
     "discord",
     "token",
