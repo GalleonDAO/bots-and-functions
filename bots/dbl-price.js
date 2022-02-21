@@ -23,7 +23,7 @@ const task = async () => {
     const botMember = guild.me
     await botMember.setNickname(`${price ? '$' + numberWithCommas(price) : ''}`)
   })
-  console.log(change.toFixed(2) + '%')
+
   if (client.user) {
     client.user.setActivity(
       `${change ? '24h: ' + change.toFixed(2) + '%' : ''}`,
