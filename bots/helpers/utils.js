@@ -11,8 +11,9 @@ module.exports.fetchData = async () => {
     const price = tokenData.market_data.current_price.usd
     const symbol = tokenData.symbol.toUpperCase()
     const circSupply = tokenData.market_data.circulating_supply
+    const change = tokenData.market_data.price_change_percentage_24h
 
-    return { price, symbol, circSupply }
+    return { price, symbol, circSupply, change }
   } catch (err) {
     console.log(err)
     return undefined

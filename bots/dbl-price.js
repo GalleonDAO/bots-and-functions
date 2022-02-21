@@ -11,21 +11,11 @@ client.on('ready', () =>
 )
 
 const task = async () => {
-  console.log(`-- $DBL Price Bot Run --`)
-
-  if (client === null || client === undefined) {
-    client = new Client()
-    client.login(process.env.DISCORD_API_TOKEN)
-    client.on('ready', () =>
-      console.log(`Bot successfully started as ${client.user.tag} 🤖`),
-    )
-  }
-
   const data = await fetchData()
 
   if (!data) return
 
-  const { price, symbol, circSupply } = data
+  const { price, symbol, circSupply, change } = data
 
   console.log('Fetched: ' + symbol, price, circSupply)
 
@@ -33,14 +23,10 @@ const task = async () => {
     const botMember = guild.me
     await botMember.setNickname(`${price ? '$' + numberWithCommas(price) : ''}`)
   })
-
+  console.log(change.toFixed(2) + '%')
   if (client.user) {
     client.user.setActivity(
-      `${
-        circSupply
-          ? 'MC: $' + numberWithCommas(Math.round(price * circSupply))
-          : ''
-      }`,
+      `${change ? '24h: ' + change.toFixed(2) + '%' : ''}`,
       { type: 'WATCHING' },
     )
   }
