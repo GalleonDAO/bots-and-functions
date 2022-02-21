@@ -1,0 +1,11 @@
+[functions]
+  node_bundler = "zisi"
+
+[build]
+  publish = "build/functions"
+  functionsSource = "netlify/functions"
+  functions = "build/functions"
+  
+[dev]
+  functionsSource = "netlify/functions"
+  functions = "build/functions"
