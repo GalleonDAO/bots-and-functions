@@ -11,7 +11,7 @@ client.on('ready', () =>
 )
 
 const task = async () => {
-  console.log(`-- DBL Price Bot Run --`)
+  console.log(`-- $DBL Price Bot Run --`)
 
   if (client === null || client === undefined) {
     client = new Client()
