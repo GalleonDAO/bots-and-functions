@@ -1,1 +1,1 @@
-worker: start:dbl
+worker: npm run start:dbl
