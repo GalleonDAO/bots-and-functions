@@ -1,7 +1,6 @@
 const { Client } = require('discord.js')
 const dotenv = require('dotenv')
-const { schedule } = require('@netlify/functions')
-const fetch = require('node-fetch')
+const { fetchData, numberWithCommas } = require('./helpers/utils')
 
 dotenv.config()
 
@@ -11,7 +10,7 @@ client.on('ready', () =>
   console.log(`Bot successfully started as ${client.user.tag} 🤖`),
 )
 
-module.exports.handler = schedule('* * * * *', async (event) => {
+const task = async () => {
   console.log(`-- DBL Price Bot Run --`)
 
   if (client === null || client === undefined) {
@@ -49,25 +48,8 @@ module.exports.handler = schedule('* * * * *', async (event) => {
   return {
     statusCode: 200,
   }
-})
-
-const fetchData = async () => {
-  try {
-    const tokenData = await (
-      await fetch(
-        `https://api.coingecko.com/api/v3/coins/${process.env.TOKEN_ID}`,
-      )
-    ).json()
-
-    const price = tokenData.market_data.current_price.usd
-    const symbol = tokenData.symbol.toUpperCase()
-    const circSupply = tokenData.market_data.circulating_supply
-
-    return { price, symbol, circSupply }
-  } catch (err) {
-    console.log(err)
-    return undefined
-  }
 }
 
-const numberWithCommas = (num) => num.toLocaleString()
+setInterval(async () => {
+  await task()
+}, 1 * 1000 * 60)
