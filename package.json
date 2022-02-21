@@ -2,10 +2,9 @@
   "name": "discord-bot",
   "version": "1.0.0",
   "description": "A Galleon Discord bot to show token prices.",
-  "main": "netlify/functions",
   "scripts": {
-    "start:dbl": "node ./netlify/functions/dbl-price-bot/dbl-price-bot.js",
-    "dev:dbl": "nodemon ./netlify/functions/dbl-price-bot/dbl-price-bot.js"
+    "build": "netlify:functions build",
+    "serve": "netlify:functions serve"
   },
   "keywords": [
     "discord",
@@ -20,7 +19,6 @@
     "@netlify/functions": "^1.0.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
-    "express": "^4.17.3",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
