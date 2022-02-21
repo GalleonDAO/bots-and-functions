@@ -5,3 +5,4 @@ app.json
 .netlify.toml
 .idea/
 .DS_Store
+dist/functions/*

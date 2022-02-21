@@ -12,8 +12,7 @@ client.on('ready', () =>
 )
 
 module.exports.handler = schedule('* * * * *', async (event) => {
-  const eventBody = JSON.parse(event.body)
-  console.log(`Next function run at ${eventBody.next_run}.`)
+  console.log(`-- DBL Price Bot Run --`)
 
   if (client === null || client === undefined) {
     client = new Client()
