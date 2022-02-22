@@ -21,12 +21,17 @@ const task = async () => {
 
   client.guilds.cache.forEach(async (guild) => {
     const botMember = guild.me
-    await botMember.setNickname(`${price ? '$' + numberWithCommas(price) : ''}`)
+    await botMember.setNickname(
+      `${
+        price
+          ? '$' + numberWithCommas(price) + ' | ' + change.toFixed(2) + '%'
+          : ''
+      }`,
+    )
   })
-
   if (client.user) {
     client.user.setActivity(
-      `${change ? '24h: ' + change.toFixed(2) + '%' : ''}`,
+      'MC: $' + numberWithCommas(Math.round(price * circSupply)),
       { type: 'WATCHING' },
     )
   }
