@@ -1,14 +1,10 @@
 {
-  "name": "galleon-discord-bots",
+  "name": "galleon-functions",
   "version": "1.0.0",
-  "description": "Galleon Discord Bots",
-  "main": "bots/dbl-price.js",
-  "scripts": {
-    "start:dbl": "node bots/dbl-price.js",
-    "dev:dbl": "nodemon bots/dbl-price.js"
-  },
+  "description": "Galleon Functions",
+  "scripts": {},
   "keywords": [
-    "discord",
+    "netlify",
     "token",
     "coingecko",
     "crypto"
